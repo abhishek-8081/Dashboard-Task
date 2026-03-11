@@ -1,62 +1,72 @@
 # Constellation Operator Dashboard
 
-![Constellation Operator Dashboard](./public/placeholder-logo.png)
-
 A comprehensive distributed control system for scientific experiments. This platform provides real-time monitoring, satellite network management, and a centralized data observatory within a modern, responsive web application.
 
-## Features
+## Overview
 
-- **🌐 Live Telemetry & Monitoring:** Real-time data streaming and visualizations for critical metrics like system load, active nodes, network traffic, and error rates.
-- **🛰️ Satellite Management:** View, track, and manage constellation endpoints with orbital status, health indicators, and signal strength.
-- **🗺️ Global Observatory:** World map integration for visualizing geographical distribution of network nodes.
-- **📊 Real-time Log Console:** Live streaming capability of system-wide component logs directly to your dashboard.
-- **🌙 Dark Mode Interface:** Built with a sleek, aesthetic design perfect for long-session monitoring applications.
+The Constellation Operator Dashboard is a mission-critical tool designed to visualize complex distributed systems. Key capabilities include:
 
-## Tech Stack
+- **Live Telemetry & Monitoring:** Real-time data streaming and visualizations for critical metrics such as system load, active nodes, network traffic, and error rates.
+- **Satellite Management:** View, track, and manage constellation endpoints with detailed orbital status, health indicators, and signal strength readouts.
+- **Global Observatory:** World map integration for visualizing the geographical distribution of network nodes.
+- **Real-time Log Console:** Live streaming capability of system-wide component logs directly to your dashboard.
+- **Dark Mode Interface:** Built with a professional, high-contrast design intended for long-session monitoring applications.
+
+## Technical Architecture
 
 This project is built using:
-- [Next.js](https://nextjs.org) (React Framework)
-- [Tailwind CSS](https://tailwindcss.com) (Styling)
-- [Radix UI](https://www.radix-ui.com) (Headless UI components)
-- [Lucide Icons](https://lucide.dev) (Iconography)
-- [Recharts](https://recharts.org) (Data Visualization)
+- **Framework:** Next.js (React Server Components and App Router)
+- **Styling:** Tailwind CSS
+- **Component Library:** Radix UI Headquarters (Headless UI components)
+- **Iconography:** Lucide React
+- **Data Visualization:** Recharts
 
 ## Getting Started
 
 ### Prerequisites
-Make sure you have Node.js and a package manager installed (`npm`, `yarn`, or `pnpm`).
+Ensure that a modern Node.js environment is configured on your machine, along with a package manager (`npm`, `yarn`, or `pnpm`).
 
-### Installation
+### Local Development Installation
 
 1. Clone the repository and navigate to the project directory:
    ```bash
-   git clone <your-repository-url>
-   cd Dashboard
+   git clone https://github.com/abhishek-8081/Dashboard-Task.git
+   cd Dashboard-Task
    ```
 
 2. Install dependencies:
    ```bash
    pnpm install
-   # or npm install / yarn install
    ```
 
 3. Run the development server:
    ```bash
    pnpm dev
-   # or npm run dev / yarn dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Verify the application is running by opening [http://localhost:3000](http://localhost:3000) in your web browser.
 
-## Architecture & Structure
+## Deployment Instructions (Vercel)
 
-- `app/`: Next.js App Router structure defining all application pages.
-- `components/`: Modular, reusable UI components.
-  - `ui/`: Base design system components.
-  - `dashboard/`, `satellites/`, etc.: Feature-specific components.
-- `lib/`: Utility functions, state management, and type definitions.
-- `hooks/`: Custom React hooks.
+Deploying this Next.js project to Vercel is highly recommended for optimal performance.
+
+1. Ensure your latest code is pushed to the `main` branch of this GitHub repository.
+2. Navigate to [Vercel](https://vercel.com/) and log in using your GitHub account.
+3. Select **Add New...** > **Project** from your Vercel Dashboard.
+4. Locate the `Dashboard-Task` repository in the list and select **Import**.
+5. Vercel automatically detects the Next.js framework. No configuration changes are required for the Build and Output Settings.
+6. Select **Deploy**.
+
+Vercel will manage the CI/CD pipeline, automatically provisioning a production URL and triggering new deployments upon subsequent pushes to the `main` branch.
+
+## Directory Structure
+
+- `app/`: Next.js App Router definitions and page layouts.
+- `components/`: Modular, reusable React components.
+  - `ui/`: Foundational design system components.
+- `lib/`: Core utility functions, global state management, and strict TypeScript definitions.
+- `hooks/`: Specialized custom React hooks.
 
 ## License
 
-This project is open-source and available under the MIT License.
+This project is available under the MIT License.
