@@ -1,0 +1,196 @@
+import type { LogEntry, Node, Satellite, SystemMetrics, ChartDataPoint } from "./types"
+
+// Initial satellites data based on Constellation architecture
+export const initialSatellites: Satellite[] = [
+  {
+    id: "sat-001",
+    name: "PowerSupplyCtrl",
+    type: "CTRL",
+    state: "RUN",
+    host: "192.168.1.10",
+    port: 23999,
+    lastHeartbeat: "2 seconds ago",
+    connectedSince: "2024-02-24 08:00:00",
+    commands: 1247,
+    dataRate: 0.5,
+  },
+  {
+    id: "sat-002",
+    name: "SensorReadout",
+    type: "DATA",
+    state: "RUN",
+    host: "192.168.1.11",
+    port: 23999,
+    lastHeartbeat: "1 second ago",
+    connectedSince: "2024-02-24 08:00:05",
+    commands: 892,
+    dataRate: 2.4,
+  },
+  {
+    id: "sat-003",
+    name: "MotionController",
+    type: "CMDP",
+    state: "ORBIT",
+    host: "192.168.1.12",
+    port: 23999,
+    lastHeartbeat: "5 seconds ago",
+    connectedSince: "2024-02-24 08:01:30",
+    commands: 456,
+    dataRate: 0.1,
+  },
+  {
+    id: "sat-004",
+    name: "DataLogger",
+    type: "DATA",
+    state: "RUN",
+    host: "192.168.1.13",
+    port: 23999,
+    lastHeartbeat: "3 seconds ago",
+    connectedSince: "2024-02-24 08:00:10",
+    commands: 2103,
+    dataRate: 5.7,
+  },
+  {
+    id: "sat-005",
+    name: "CalibrationUnit",
+    type: "CHIRP",
+    state: "SAFE",
+    host: "192.168.1.14",
+    port: 23999,
+    lastHeartbeat: "30 seconds ago",
+    commands: 78,
+    dataRate: 0.0,
+  },
+  {
+    id: "sat-006",
+    name: "TriggerGenerator",
+    type: "CTRL",
+    state: "INIT",
+    host: "192.168.1.15",
+    port: 23999,
+    lastHeartbeat: "10 seconds ago",
+    commands: 0,
+    dataRate: 0.0,
+  },
+]
+
+export const initialNodes: Node[] = [
+  {
+    id: "NODE-001",
+    name: "Primary Compute",
+    status: "online",
+    uptime: "45d 12h 34m",
+    lastActivity: "2 seconds ago",
+    cpuLoad: 67,
+    memoryUsage: 72,
+    networkIn: 450,
+    networkOut: 230,
+    temperature: 52,
+    type: "compute",
+  },
+  {
+    id: "NODE-002",
+    name: "Secondary Compute",
+    status: "online",
+    uptime: "45d 12h 34m",
+    lastActivity: "5 seconds ago",
+    cpuLoad: 45,
+    memoryUsage: 58,
+    networkIn: 320,
+    networkOut: 180,
+    temperature: 48,
+    type: "compute",
+  },
+  {
+    id: "NODE-003",
+    name: "Data Processor",
+    status: "warning",
+    uptime: "12d 03h 21m",
+    lastActivity: "1 minute ago",
+    cpuLoad: 89,
+    memoryUsage: 94,
+    networkIn: 890,
+    networkOut: 120,
+    temperature: 68,
+    type: "compute",
+  },
+  {
+    id: "NODE-004",
+    name: "Network Gateway",
+    status: "online",
+    uptime: "45d 12h 34m",
+    lastActivity: "just now",
+    cpuLoad: 23,
+    memoryUsage: 35,
+    networkIn: 1200,
+    networkOut: 1150,
+    temperature: 42,
+    type: "gateway",
+  },
+  {
+    id: "NODE-005",
+    name: "Storage Array",
+    status: "online",
+    uptime: "30d 08h 15m",
+    lastActivity: "10 seconds ago",
+    cpuLoad: 54,
+    memoryUsage: 82,
+    networkIn: 560,
+    networkOut: 890,
+    temperature: 45,
+    type: "storage",
+  },
+  {
+    id: "NODE-006",
+    name: "Backup Server",
+    status: "offline",
+    uptime: "0d 00h 00m",
+    lastActivity: "2 hours ago",
+    cpuLoad: 0,
+    memoryUsage: 0,
+    networkIn: 0,
+    networkOut: 0,
+    temperature: 25,
+    type: "storage",
+  },
+]
+
+export const initialLogs: LogEntry[] = [
+  { id: "1", timestamp: "08:00:00", message: "Constellation initialized - Operator Dashboard v1.0.0", type: "success", source: "SYSTEM" },
+  { id: "2", timestamp: "08:00:02", message: "Loading configuration from primary datastore...", type: "info", source: "CONFIG" },
+  { id: "3", timestamp: "08:00:05", message: "All sensor arrays online", type: "success", source: "SENSOR" },
+  { id: "4", timestamp: "08:01:15", message: "Satellite PowerSupplyCtrl connected", type: "info", source: "CHIRP" },
+  { id: "5", timestamp: "08:01:18", message: "Satellite SensorReadout connected", type: "info", source: "CHIRP" },
+  { id: "6", timestamp: "08:02:30", message: "Telemetry stream established", type: "success", source: "DATA" },
+  { id: "7", timestamp: "08:05:45", message: "Warning: High memory usage on NODE-003", type: "warning", source: "MONITOR" },
+  { id: "8", timestamp: "08:06:00", message: "Initiating load balancing protocol", type: "info", source: "SYSTEM" },
+  { id: "9", timestamp: "08:10:22", message: "NODE-006 connection timeout - marked offline", type: "error", source: "NETWORK" },
+  { id: "10", timestamp: "08:15:00", message: "Scheduled data acquisition started", type: "info", source: "DAQ" },
+  { id: "11", timestamp: "08:20:33", message: "Data integrity check passed", type: "success", source: "STORAGE" },
+  { id: "12", timestamp: "08:25:00", message: "Observatory plots updated", type: "info", source: "OBSERVATORY" },
+]
+
+export const initialMetrics: SystemMetrics = {
+  cpu: { value: 72, trend: "up", trendValue: "+2.4%" },
+  memory: { value: 8.4, trend: "stable", trendValue: "0%" },
+  network: { value: 1.2, trend: "up", trendValue: "+15%" },
+  power: { value: 847, trend: "down", trendValue: "-3.2%" },
+  temp: { value: 42, trend: "up", trendValue: "+1.5°" },
+}
+
+// Generate initial chart data
+export function generateInitialChartData(): ChartDataPoint[] {
+  const data: ChartDataPoint[] = []
+  const now = new Date()
+  for (let i = 30; i >= 0; i--) {
+    const time = new Date(now.getTime() - i * 2000)
+    data.push({
+      time: time.toLocaleTimeString("en-US", { hour12: false }),
+      cpu: 50 + Math.random() * 40,
+      network: 0.5 + Math.random() * 1.5,
+      dataRate: 2 + Math.random() * 4,
+      memory: 60 + Math.random() * 25,
+    })
+  }
+  return data
+}
